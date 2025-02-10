@@ -9,10 +9,6 @@
       "PackagePath": "staticwebassets\\BlazorApp1.styles.css"
     },
     {
-      "Id": "C:\\Users\\joero\\source\\repos\\NewTry\\BlazorApp1\\wwwroot\\Index.html",
-      "PackagePath": "staticwebassets\\Index.html"
-    },
-    {
       "Id": "C:\\Users\\joero\\source\\repos\\NewTry\\BlazorApp1\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -35,6 +31,10 @@
     {
       "Id": "C:\\Users\\joero\\source\\repos\\NewTry\\BlazorApp1\\wwwroot\\icon-512.png",
       "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\Users\\joero\\source\\repos\\NewTry\\BlazorApp1\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
     },
     {
       "Id": "C:\\Users\\joero\\source\\repos\\NewTry\\BlazorApp1\\wwwroot\\index.html-old",

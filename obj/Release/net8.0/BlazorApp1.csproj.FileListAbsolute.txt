@@ -1400,6 +1400,6 @@ C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\swa-db-
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\swa-db-connections\staticwebapp.database.config.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\wwwroot\sample-data\weather.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\wwwroot\_framework\blazor.boot.json
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\mpnezo3ggr-x1xpojw2gs.gz
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\kyjy2iuvp1-orcymbznfx.gz
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\5jzqasczcu-abhuiy20u3.gz
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\mpnezo3ggr-xcjjfips43.gz
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\kyjy2iuvp1-v9aoy50wj9.gz
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\5jzqasczcu-zxonuih07f.gz
