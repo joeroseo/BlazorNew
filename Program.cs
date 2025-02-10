@@ -13,8 +13,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient 
 {
-    BaseAddress = new Uri("http://localhost:5000") // Development - Set the correct base address of your API here
-    //BaseAddress = new Uri("http://red-desert-0234a091e.4.azurestaticapps.net") // Production - Set the correct base address of your API here
+    //BaseAddress = new Uri("http://localhost:5000") // Development - Set the correct base address of your API here
+    BaseAddress = new Uri("https://white-pond-0650d6f1e.4.azurestaticapps.net") // Production - Set the correct base address of your API here
 });
 
 builder.Services.AddScoped<ProductsService>();
