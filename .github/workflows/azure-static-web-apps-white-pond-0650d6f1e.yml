@@ -30,13 +30,13 @@ jobs:
         run: dotnet restore BlazorApp1.csproj
 
       - name: Build and Publish Blazor WebAssembly
-        run: dotnet publish BlazorApp1.csproj -c Release -o published
+        run: dotnet publish BlazorApp1.csproj -c Release
 
       - name: Verify Publish Output
         run: |
-          ls -R published/wwwroot
-          if [ ! -f published/wwwroot/index.html ]; then
-            echo "ERROR: index.html not found in published/wwwroot! The build may have failed."
+          ls -R bin/Release/net8.0/publish/wwwroot
+          if [ ! -f bin/Release/net8.0/publish/wwwroot/index.html ]; then
+            echo "ERROR: index.html not found in bin/Release/net8.0/publish/wwwroot! The build may have failed."
             exit 1
           fi
 
@@ -47,11 +47,12 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_POND_0650D6F1E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "published/wwwroot"  # Corrected to match Blazor WASM publish output
-          api_location: ""  # No Azure Functions
-          data_api_location: "swa-db-connections"  # Ensure Data API Builder is deployed
+          app_location: "bin/Release/net8.0/publish/wwwroot"  # Set explicitly
+          api_location: "swa-db-connections"  # Ensures Data API Builder is deployed
+          data_api_location: "swa-db-connections"
           output_location: "wwwroot"
-          app_build_command: "dotnet publish BlazorApp1.csproj -c Release -o published"
+          app_build_command: "dotnet publish BlazorApp1.csproj -c Release"
+          api_build_command: "dotnet build swa-db-connections"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
