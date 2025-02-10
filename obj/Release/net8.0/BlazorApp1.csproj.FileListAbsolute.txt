@@ -1375,9 +1375,6 @@ C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\wrnf
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\m2waow3ayo-tptq2av103.gz
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\yvizlwgna6-lfu7j35m59.gz
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\fyixgo0u6y-oyz0vx2fzb.gz
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\mpnezo3ggr-2utgocitmr.gz
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\kyjy2iuvp1-9vu4xu1ejb.gz
-C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\5jzqasczcu-dfn93jrgef.gz
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\staticwebassets.build.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\staticwebassets.development.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\staticwebassets.build.endpoints.json
@@ -1403,3 +1400,6 @@ C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\swa-db-
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\swa-db-connections\staticwebapp.database.config.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\wwwroot\sample-data\weather.json
 C:\Users\joero\source\repos\NewTry\BlazorApp1\bin\Release\net8.0\publish\wwwroot\_framework\blazor.boot.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\mpnezo3ggr-5gkcg1o0s4.gz
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\kyjy2iuvp1-iclcbn2wk0.gz
+C:\Users\joero\source\repos\NewTry\BlazorApp1\obj\Release\net8.0\compressed\5jzqasczcu-16whbdqokr.gz
