@@ -60,7 +60,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "bin/publish/wwwroot"  # Corrected Blazor WASM path
-          api_location: "swa-db-connections"  # Ensures API functions are deployed
           data_api_location: "swa-db-connections"  # Ensures Data API Builder is deployed
           output_location: "wwwroot"
           app_build_command: "dotnet publish BlazorApp1.csproj -c Release --output bin/publish"
