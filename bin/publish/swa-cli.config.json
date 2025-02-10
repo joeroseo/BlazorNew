@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "blazor-app": {
+      "appLocation": "bin/Release/net8.0/publish/wwwroot",
+      "outputLocation": "wwwroot",
+      "dataApiLocation": "swa-db-connections",
+      "appDevserverUrl": "http://localhost:4280"
+    }
+  }
+}
