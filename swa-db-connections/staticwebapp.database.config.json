@@ -45,12 +45,8 @@
       },
       "permissions": [
         {
-          "role": "anonymous",
-          "actions": [
-            {
-              "action": "*"
-            }
-          ]
+         "role": "anonymous",
+         "actions": ["read"]
         }
       ]
     }
