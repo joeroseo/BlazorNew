@@ -1,66 +1,63 @@
-name: Azure Static Web Apps CI/CD
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
-
-jobs:
-  build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-          lfs: false
-
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 8.0.x
-
-      - name: Restore Dependencies
-        run: dotnet restore BlazorApp1.csproj
-
-      - name: Build and Publish Blazor WebAssembly
-        run: dotnet publish BlazorApp1.csproj -c Release --output bin/publish
-
-      - name: Verify Publish Output
-        run: |
-          ls -R bin/publish/wwwroot
-          if [ ! -f bin/publish/wwwroot/index.html ]; then
-            echo "ERROR: index.html not found in bin/publish/wwwroot! The build may have failed."
-            exit 1
-          fi
-
-      - name: Deploy to Azure Static Web Apps
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_POND_0650D6F1E }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "bin/publish/wwwroot"  # Use prebuilt output
-          api_location: ""  # No Azure Functions
-          data_api_location: "swa-db-connections"  # Ensures Data API Builder is included
-          output_location: "wwwroot"
-          skip_app_build: true  # Prevents Oryx from rebuilding the app
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_POND_0650D6F1E }}
-          action: "close"
+{
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/api/*",
+            "/static/*",
+            "/rest/*",
+            "/graphql/*"
+        ]
+    },
+    "routes": [
+        {
+            "route": "/api/*",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+      "route": "/rest/{*all}",
+      "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/graphql/*",
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/admin",
+            "allowedRoles": ["admin"]
+        },
+        {
+            "route": "/",
+            "rewrite": "/index.html"
+        },
+        {
+            "route": "/static/*",
+            "headers": {
+                "cache-control": "max-age=31536000"
+            }
+        }
+    ],
+    "responseOverrides": {
+        "404": {
+            "rewrite": "/404.html"
+        },
+        "403": {
+            "rewrite": "/403.html"
+        }
+    },
+    "globalHeaders": {
+        "X-Content-Type-Options": "nosniff",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none';"
+    },
+    "platform": {
+        "apiRuntime": "dotnet:8"
+    },
+    "networking": {
+        "allowedIpRanges": [
+            "0.0.0.0/0"
+        ]
+    },
+    "dataApi": {
+        "configFilePath": "swa-db-connections/staticwebapp.database.config.json"
+    }
+}

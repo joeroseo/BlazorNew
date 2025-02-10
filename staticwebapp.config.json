@@ -14,8 +14,8 @@
             "allowedRoles": ["authenticated"]
         },
         {
-            "route": "/rest/*",
-            "allowedRoles": ["anonymous"]
+      "route": "/rest/{*all}",
+      "allowedRoles": ["anonymous"]
         },
         {
             "route": "/graphql/*",
