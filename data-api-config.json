@@ -1,0 +1,27 @@
+{
+  "cors": {
+    "enabled": true,
+    "allowedOrigins": ["*"]
+  },
+  "dataSource": {
+    "databaseType": "mssql",
+    "connectionString": "Server=tcp:mysqlmachine.database.windows.net,1433;Initial Catalog=MyBlazorAppDB;Persist Security Info=False;User ID=Admin1;Password=Test123#;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  },
+  "entities": {
+    "Products": {
+      "source": "dbo.Products",
+      "rest": {
+        "enabled": true
+      },
+      "graphql": {
+        "enabled": true
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": ["read", "create", "update", "delete"]
+        }
+      ]
+    }
+  }
+}
