@@ -32,10 +32,11 @@ jobs:
         run: dotnet publish BlazorApp1.csproj -c Release
 
       - name: Find Published Output
+        id: set_publish_dir
         run: |
           echo "Finding published output..."
-          PUBLISH_DIR=$(find . -type d -name "wwwroot" | grep "bin/Release/net8.0")
-          echo "Publish directory: $PUBLISH_DIR"
+          export PUBLISH_DIR=$(find bin/Release/net8.0 -type d -name "wwwroot" | head -n 1)
+          echo "Publish directory found: $PUBLISH_DIR"
           echo "PUBLISH_DIR=$PUBLISH_DIR" >> $GITHUB_ENV
 
       - name: Deploy to Azure Static Web Apps
