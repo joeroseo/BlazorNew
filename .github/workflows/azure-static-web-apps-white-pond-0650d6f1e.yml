@@ -26,14 +26,55 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Install WebAssembly Tools
+        run: dotnet workload install wasm-tools
+
       - name: Restore Dependencies
         run: dotnet restore BlazorApp1.csproj
 
       - name: Build and Publish Blazor WebAssembly
-        run: dotnet publish BlazorApp1.csproj -c Release -o bin/publish
+        run: dotnet publish BlazorApp1.csproj -c Release --output bin/publish
 
       - name: Verify Publish Output
         run: |
           ls -R bin/publish/wwwroot
           if [ ! -f bin/publish/wwwroot/index.html ]; then
-            echo "ERROR: index.html not found in bin/publish
+            echo "ERROR: index.html not found in bin/publish/wwwroot! The build may have failed."
+            exit 1
+          fi
+
+      - name: Build Data API Builder
+        run: |
+          if [ -d "swa-db-connections" ]; then
+            dotnet build swa-db-connections
+          else
+            echo "WARNING: No API directory found. Skipping API build."
+          fi
+
+      - name: Deploy to Azure Static Web Apps
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_POND_0650D6F1E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "bin/publish/wwwroot"  # Corrected Blazor WASM path
+          api_location: "swa-db-connections"  # Ensure API functions are deployed
+          data_api_location: "swa-db-connections"  # Ensure Data API Builder is deployed
+          output_location: "wwwroot"
+          app_build_command: "dotnet publish BlazorApp1.csproj -c Release --output bin/publish"
+          api_build_command: "dotnet build swa-db-connections"
+          platform:  
+            apiRuntime: "dotnet:8"  # Force API runtime to .NET 8
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_POND_0650D6F1E }}
+          action: "close"
