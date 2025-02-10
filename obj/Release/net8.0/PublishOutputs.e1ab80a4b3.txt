@@ -1,0 +1,8 @@
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\data-api-config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\staticwebapp.config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\staticwebapp.database.config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\swa-cli.config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\swa-db-connections\data-api-config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\swa-db-connections\staticwebapp.database.config.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\emcc-props.json
+C:\Users\joero\source\repos\NewTry\BlazorApp1\publish\web.config
